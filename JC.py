@@ -212,7 +212,7 @@ class JC_Models:
         if image.mode != 'RGB':
             image = image.convert('RGB')
         
-        # image = image.resize(self.target_size, Image.Resampling.LANCZOS)
+        image = image.resize(self.target_size, Image.Resampling.LANCZOS)
         
         inputs = self.processor(text=[convo_string], images=[image], return_tensors="pt").to(self.device)
         
