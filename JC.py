@@ -98,7 +98,8 @@ class JC_Models:
                     del _MODEL_CACHE[cache_key]
                 torch.cuda.empty_cache()
         
-        checkpoint_path = Path(folder_paths.models_dir) / "LLM" / Path(model).stem
+        # checkpoint_path = Path(folder_paths.models_dir) / "LLM" / Path(model).stem
+        checkpoint_path = Path("/root/.cache/LLM") / Path(model).stem
         if not checkpoint_path.exists():
             from huggingface_hub import snapshot_download
             snapshot_download(repo_id=model, local_dir=str(checkpoint_path), force_download=False, local_files_only=False)
